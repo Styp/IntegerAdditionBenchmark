@@ -15,7 +15,7 @@ Frequency=2240900 Hz, Resolution=446.2493 ns, Timer=TSC
 [Host]     : .NET Core 2.1.0 (CoreCLR 4.6.26515.07, CoreFX 4.6.26515.06), 64bit RyuJIT  [AttachedDebugger]
 DefaultJob : .NET Core 2.1.0 (CoreCLR 4.6.26515.07, CoreFX 4.6.26515.06), 64bit RyuJIT
   
-                             Method |      Size |                 Mean |              Error |             StdDev |                 Median |
+                               Method |      Size |                 Mean |              Error |             StdDev |                 Median |
 ------------------------------------- |---------- |---------------------:|-------------------:|-------------------:|---------------------:|
                               ForLoop |        15 |             24.16 ns |          0.2587 ns |          0.2160 ns |             24.10 ns |
                          ForLoopConst |        15 |             23.39 ns |          0.6701 ns |          1.1197 ns |             22.81 ns |
