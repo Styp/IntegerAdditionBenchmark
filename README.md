@@ -12,11 +12,11 @@ BenchmarkDotNet=v0.11.0, OS=Windows 10.0.17134.165 (1803/April2018Update/Redston
 Intel Xeon CPU E5-2650 v3 2.30GHz, 1 CPU, 20 logical and 10 physical cores
 Frequency=2240900 Hz, Resolution=446.2493 ns, Timer=TSC
 .NET Core SDK=2.1.300
-  [Host]     : .NET Core 2.1.0 (CoreCLR 4.6.26515.07, CoreFX 4.6.26515.06), 64bit RyuJIT  [AttachedDebugger]
-  DefaultJob : .NET Core 2.1.0 (CoreCLR 4.6.26515.07, CoreFX 4.6.26515.06), 64bit RyuJIT
+[Host]     : .NET Core 2.1.0 (CoreCLR 4.6.26515.07, CoreFX 4.6.26515.06), 64bit RyuJIT  [AttachedDebugger]
+DefaultJob : .NET Core 2.1.0 (CoreCLR 4.6.26515.07, CoreFX 4.6.26515.06), 64bit RyuJIT
   
-                               Method |      Size |                 Mean |              Error |             StdDev |                 Median |
-  ------------------------------------- |---------- |---------------------:|-------------------:|-------------------:|---------------------:|
+                             Method |      Size |                 Mean |              Error |             StdDev |                 Median |
+------------------------------------- |---------- |---------------------:|-------------------:|-------------------:|---------------------:|
                               ForLoop |        15 |             24.16 ns |          0.2587 ns |          0.2160 ns |             24.10 ns |
                          ForLoopConst |        15 |             23.39 ns |          0.6701 ns |          1.1197 ns |             22.81 ns |
                        ForLoopReverse |        15 |             30.06 ns |          0.3787 ns |          0.3543 ns |             30.08 ns |
