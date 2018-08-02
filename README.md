@@ -6,15 +6,17 @@ Integer Addition Benchmark in C# - various implementations!
 
 
 ## Run on E5-2650 v3 2x 10c/20t
+
+```
 BenchmarkDotNet=v0.11.0, OS=Windows 10.0.17134.165 (1803/April2018Update/Redstone4)
 Intel Xeon CPU E5-2650 v3 2.30GHz, 1 CPU, 20 logical and 10 physical cores
 Frequency=2240900 Hz, Resolution=446.2493 ns, Timer=TSC
 .NET Core SDK=2.1.300
   [Host]     : .NET Core 2.1.0 (CoreCLR 4.6.26515.07, CoreFX 4.6.26515.06), 64bit RyuJIT  [AttachedDebugger]
   DefaultJob : .NET Core 2.1.0 (CoreCLR 4.6.26515.07, CoreFX 4.6.26515.06), 64bit RyuJIT
-
-                               Method |      Size |                 Mean |              Error |             StdDev |               Median |
-------------------------------------- |---------- |---------------------:|-------------------:|-------------------:|---------------------:|
+  
+                               Method |      Size |                 Mean |              Error |             StdDev |                 Median |
+  ------------------------------------- |---------- |---------------------:|-------------------:|-------------------:|---------------------:|
                               ForLoop |        15 |             24.16 ns |          0.2587 ns |          0.2160 ns |             24.10 ns |
                          ForLoopConst |        15 |             23.39 ns |          0.6701 ns |          1.1197 ns |             22.81 ns |
                        ForLoopReverse |        15 |             30.06 ns |          0.3787 ns |          0.3543 ns |             30.08 ns |
@@ -106,3 +108,5 @@ Frequency=2240900 Hz, Resolution=446.2493 ns, Timer=TSC
  ParallelLinqSelectWithDirectAccessor | 268435455 |    560,375,987.33 ns | 11,166,472.5276 ns | 12,859,325.2178 ns |    559,751,216.03 ns |
                               SimdFor | 268435455 |    616,498,043.94 ns |  5,037,350.2960 ns |  4,711,940.1338 ns |    615,940,024.10 ns |
                       ParallelSimdFor | 268435455 |    323,462,091.12 ns |  5,100,266.2512 ns |  4,770,791.7515 ns |    322,215,627.65 ns |
+                      
+```
