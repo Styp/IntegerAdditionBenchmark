@@ -211,7 +211,7 @@ Frequency=3318391 Hz, Resolution=301.3509 ns, Timer=TSC
                       ParallelSimdFor | 268435455 |    253,456,569.77 ns |  1,658,087.1862 ns |  1,469,850.9584 ns |    253,168,528.56 ns |
 ```
 
-## Run on E5-2650 v3 2x 10c/20t
+## Run on E3-1245v3 4c/8t - Windows
 
 ```
 BenchmarkDotNet=v0.11.0, OS=ubuntu 16.04
