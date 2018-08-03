@@ -211,6 +211,111 @@ Frequency=3318391 Hz, Resolution=301.3509 ns, Timer=TSC
                       ParallelSimdFor | 268435455 |    253,456,569.77 ns |  1,658,087.1862 ns |  1,469,850.9584 ns |    253,168,528.56 ns |
 ```
 
+## Run on E5-2650 v3 2x 10c/20t
+
+```
+BenchmarkDotNet=v0.11.0, OS=ubuntu 16.04
+Intel Xeon CPU E3-1245 v3 3.40GHz, 1 CPU, 8 logical and 4 physical cores
+.NET Core SDK=2.1.302
+  [Host]     : .NET Core 2.1.2 (CoreCLR 4.6.26628.05, CoreFX 4.6.26629.01), 64bit RyuJIT
+  DefaultJob : .NET Core 2.1.2 (CoreCLR 4.6.26628.05, CoreFX 4.6.26629.01), 64bit RyuJIT
+
+
+                               Method |      Size |                 Mean |              Error |             StdDev |
+------------------------------------- |---------- |---------------------:|-------------------:|-------------------:|
+                              ForLoop |        15 |             20.24 ns |          0.2281 ns |          0.2133 ns |
+                         ForLoopConst |        15 |             19.79 ns |          0.0608 ns |          0.0569 ns |
+                       ForLoopReverse |        15 |             25.07 ns |          0.0588 ns |          0.0491 ns |
+          ForLoopReversePostIncrement |        15 |             25.14 ns |          0.0888 ns |          0.0787 ns |
+                          ParallelFor |        15 |          4,016.79 ns |         76.0019 ns |         71.0922 ns |
+               ParallelForPartitioned |        15 |        112,264.21 ns |      1,760.5324 ns |      1,646.8029 ns |
+                              LinqZip |        15 |            562.58 ns |          2.0333 ns |          1.9020 ns |
+              LinqSelectWithElementAt |        15 |          1,145.72 ns |          4.6369 ns |          4.1105 ns |
+      ParallelLinqSelectWithElementAt |        15 |          9,684.14 ns |         95.2786 ns |         89.1237 ns |
+         LinqSelectWithDirectAccessor |        15 |            455.36 ns |          1.0727 ns |          0.8375 ns |
+ ParallelLinqSelectWithDirectAccessor |        15 |          9,592.27 ns |        159.0780 ns |        141.0185 ns |
+                              SimdFor |        15 |             19.21 ns |          0.0897 ns |          0.0839 ns |
+                      ParallelSimdFor |        15 |        111,964.53 ns |      2,103.9617 ns |      1,968.0469 ns |
+                              ForLoop |       255 |            185.70 ns |          0.2962 ns |          0.2626 ns |
+                         ForLoopConst |       255 |            185.14 ns |          0.7557 ns |          0.7069 ns |
+                       ForLoopReverse |       255 |            245.14 ns |          0.5753 ns |          0.5381 ns |
+          ForLoopReversePostIncrement |       255 |            245.69 ns |          0.7350 ns |          0.6875 ns |
+                          ParallelFor |       255 |          5,737.04 ns |         65.1209 ns |         60.9141 ns |
+               ParallelForPartitioned |       255 |        112,319.90 ns |      1,690.7681 ns |      1,498.8217 ns |
+                              LinqZip |       255 |          5,571.51 ns |          7.7894 ns |          6.5045 ns |
+              LinqSelectWithElementAt |       255 |         15,221.18 ns |         50.4354 ns |         42.1159 ns |
+      ParallelLinqSelectWithElementAt |       255 |         13,915.61 ns |         57.9916 ns |         54.2454 ns |
+         LinqSelectWithDirectAccessor |       255 |          4,277.68 ns |         11.3002 ns |         10.0173 ns |
+ ParallelLinqSelectWithDirectAccessor |       255 |         11,234.65 ns |        215.5106 ns |        211.6602 ns |
+                              SimdFor |       255 |            104.04 ns |          0.1136 ns |          0.0948 ns |
+                      ParallelSimdFor |       255 |        111,726.88 ns |      2,130.4953 ns |      1,992.8664 ns |
+                              ForLoop |      4095 |          2,635.33 ns |          3.7127 ns |          3.4729 ns |
+                         ForLoopConst |      4095 |          2,595.39 ns |          6.5593 ns |          5.8146 ns |
+                       ForLoopReverse |      4095 |          3,523.43 ns |          8.5230 ns |          7.5554 ns |
+          ForLoopReversePostIncrement |      4095 |          3,541.43 ns |          8.4817 ns |          7.0826 ns |
+                          ParallelFor |      4095 |         16,145.92 ns |        112.1468 ns |        104.9021 ns |
+               ParallelForPartitioned |      4095 |        122,681.70 ns |      1,184.5380 ns |      1,108.0175 ns |
+                              LinqZip |      4095 |         81,397.59 ns |        290.4108 ns |        257.4416 ns |
+              LinqSelectWithElementAt |      4095 |        235,671.82 ns |        586.8901 ns |        490.0797 ns |
+      ParallelLinqSelectWithElementAt |      4095 |         82,259.35 ns |        469.7772 ns |        439.4299 ns |
+         LinqSelectWithDirectAccessor |      4095 |         61,527.25 ns |        290.9111 ns |        227.1243 ns |
+ ParallelLinqSelectWithDirectAccessor |      4095 |         24,762.44 ns |        213.8044 ns |        199.9928 ns |
+                              SimdFor |      4095 |          1,612.58 ns |          3.7032 ns |          3.4640 ns |
+                      ParallelSimdFor |      4095 |        115,137.46 ns |      1,497.8112 ns |      1,401.0534 ns |
+                              ForLoop |     65535 |         96,128.12 ns |        225.6516 ns |        211.0746 ns |
+                         ForLoopConst |     65535 |         95,708.46 ns |        248.3003 ns |        220.1118 ns |
+                       ForLoopReverse |     65535 |        111,418.78 ns |        198.3814 ns |        185.5661 ns |
+          ForLoopReversePostIncrement |     65535 |        111,471.89 ns |        210.3220 ns |        186.4450 ns |
+                          ParallelFor |     65535 |        141,253.43 ns |        870.0209 ns |        813.8180 ns |
+               ParallelForPartitioned |     65535 |        228,912.86 ns |      1,481.3508 ns |      1,385.6563 ns |
+                              LinqZip |     65535 |      1,382,107.13 ns |      7,045.3509 ns |      6,590.2250 ns |
+              LinqSelectWithElementAt |     65535 |      3,869,384.99 ns |      9,846.7776 ns |      8,222.5045 ns |
+      ParallelLinqSelectWithElementAt |     65535 |      1,163,529.60 ns |      7,935.7902 ns |      7,423.1423 ns |
+         LinqSelectWithDirectAccessor |     65535 |      1,070,280.53 ns |      1,860.2144 ns |      1,740.0456 ns |
+ ParallelLinqSelectWithDirectAccessor |     65535 |        273,900.25 ns |      3,003.3337 ns |      2,662.3769 ns |
+                              SimdFor |     65535 |         77,186.91 ns |         89.1092 ns |         78.9930 ns |
+                      ParallelSimdFor |     65535 |        205,694.16 ns |      2,109.4173 ns |      1,973.1500 ns |
+                              ForLoop |   1048575 |      1,770,997.51 ns |     10,476.5035 ns |      9,799.7270 ns |
+                         ForLoopConst |   1048575 |      1,808,634.53 ns |     35,247.5817 ns |     32,970.6066 ns |
+                       ForLoopReverse |   1048575 |      2,069,944.54 ns |     30,892.7669 ns |     28,897.1106 ns |
+          ForLoopReversePostIncrement |   1048575 |      2,032,285.95 ns |     20,979.6165 ns |     19,624.3444 ns |
+                          ParallelFor |   1048575 |      2,117,238.64 ns |     40,382.5327 ns |     37,773.8425 ns |
+               ParallelForPartitioned |   1048575 |      1,108,562.00 ns |     11,309.0556 ns |     10,578.4966 ns |
+                              LinqZip |   1048575 |     21,838,844.18 ns |     99,188.6347 ns |     92,781.1014 ns |
+              LinqSelectWithElementAt |   1048575 |     61,937,275.28 ns |    253,984.7669 ns |    225,150.8582 ns |
+      ParallelLinqSelectWithElementAt |   1048575 |     17,713,225.69 ns |    185,406.3894 ns |    173,429.2348 ns |
+         LinqSelectWithDirectAccessor |   1048575 |     16,631,467.67 ns |     18,370.3920 ns |     17,183.6744 ns |
+ ParallelLinqSelectWithDirectAccessor |   1048575 |      4,092,425.59 ns |     36,337.9617 ns |     33,990.5486 ns |
+                              SimdFor |   1048575 |      1,694,037.36 ns |     33,311.9949 ns |     60,912.8664 ns |
+                      ParallelSimdFor |   1048575 |      1,123,425.46 ns |     14,787.7832 ns |     13,832.5003 ns |
+                              ForLoop |  16777215 |     27,330,151.13 ns |    114,439.7730 ns |    107,047.0243 ns |
+                         ForLoopConst |  16777215 |     27,175,910.76 ns |    174,385.9331 ns |    163,120.6941 ns |
+                       ForLoopReverse |  16777215 |     31,481,119.96 ns |    170,892.3076 ns |    159,852.7550 ns |
+          ForLoopReversePostIncrement |  16777215 |     31,522,630.19 ns |    218,488.8682 ns |    204,374.6030 ns |
+                          ParallelFor |  16777215 |     30,105,705.07 ns |    428,924.3207 ns |    401,216.0366 ns |
+               ParallelForPartitioned |  16777215 |     13,437,355.34 ns |     72,556.8685 ns |     67,869.7332 ns |
+                              LinqZip |  16777215 |    360,915,602.80 ns |  2,069,287.8133 ns |  1,935,612.9161 ns |
+              LinqSelectWithElementAt |  16777215 |    989,583,073.93 ns |  4,443,184.7179 ns |  4,156,157.3375 ns |
+      ParallelLinqSelectWithElementAt |  16777215 |    267,552,927.43 ns |    669,166.6362 ns |    625,938.8258 ns |
+         LinqSelectWithDirectAccessor |  16777215 |    278,020,636.67 ns |    460,677.8266 ns |    430,918.2829 ns |
+ ParallelLinqSelectWithDirectAccessor |  16777215 |     57,282,765.53 ns |    602,776.6788 ns |    563,837.6245 ns |
+                              SimdFor |  16777215 |     25,734,052.52 ns |     67,809.2351 ns |     63,428.7944 ns |
+                      ParallelSimdFor |  16777215 |     13,504,157.14 ns |    187,947.7012 ns |    175,806.3792 ns |
+                              ForLoop | 268435455 |    400,630,099.27 ns |    664,379.7301 ns |    621,461.1513 ns |
+                         ForLoopConst | 268435455 |    401,047,473.33 ns |  3,025,618.8110 ns |  2,830,165.4376 ns |
+                       ForLoopReverse | 268435455 |    456,732,086.13 ns |  1,065,678.6493 ns |    996,836.3727 ns |
+          ForLoopReversePostIncrement | 268435455 |    455,059,304.60 ns |  1,041,769.9657 ns |    974,472.1775 ns |
+                          ParallelFor | 268435455 |    465,941,493.69 ns | 10,666,619.4643 ns | 31,450,768.1541 ns |
+               ParallelForPartitioned | 268435455 |    164,576,803.25 ns |    950,976.5722 ns |    889,543.9891 ns |
+                              LinqZip | 268435455 |  5,714,986,887.47 ns | 12,674,167.4403 ns | 11,855,422.9336 ns |
+              LinqSelectWithElementAt | 268435455 | 15,820,091,500.07 ns | 40,949,686.2773 ns | 38,304,358.2234 ns |
+      ParallelLinqSelectWithElementAt | 268435455 |  4,244,448,797.87 ns | 11,600,925.6616 ns | 10,851,512.0056 ns |
+         LinqSelectWithDirectAccessor | 268435455 |  4,446,482,520.79 ns |  5,725,485.2033 ns |  5,075,493.0037 ns |
+ ParallelLinqSelectWithDirectAccessor | 268435455 |    868,380,782.00 ns |  4,880,416.7053 ns |  4,326,361.8650 ns |
+                              SimdFor | 268435455 |    375,172,697.53 ns |  2,636,174.5228 ns |  2,465,879.0443 ns |
+                      ParallelSimdFor | 268435455 |    164,404,366.30 ns |  2,145,389.9528 ns |  2,006,798.8977 ns |
+
+```
 
 ## Run on E5-2650 v3 2x 10c/20t
 
